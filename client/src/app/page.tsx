@@ -4,8 +4,9 @@ import React from "react";
 import Project from "@/app/interfaces/Project";
 import Head from "next/head";
 import ProjectCard from "@/app/components/Projects/ProjectCard";
-import "./public/styles/global/styles.css"
+import "./global.css"
 import Link from "next/link";
+import Header from "@/app/components/Header/Header";
 
 export default function Home() {
     const sampleProjects: Project[] = [
@@ -26,22 +27,37 @@ export default function Home() {
     };
 
     return (
-        <body>
+        <div>
             <Head>
                 <title>Home</title>
             </Head>
-            <h1>Recent Projects</h1>
-            <div className="container">
-                {sampleProjects.map((project, index) => (
-                    <Link href={`/project/${project.name}`}><ProjectCard key={index} project={project} /></Link>
-                ))}
-                <div className="button-card">
-                    <button onClick={addProject}>
-                        <p>Add New Project</p>
-                    </button>
+            <Header></Header>
+            <section className="section">
+                <div className="container">
+                    <h1 className="title">Recent Projects</h1>
+                    <div className="columns is-multiline">
+                        {sampleProjects.map((project:Project, index:number) => (
+                            <div className="column is-4" key={index}>
+                                <Link href={`/project/${project.name}`}>
+                                        <ProjectCard project={project} />
+                                </Link>
+                            </div>
+                        ))}
+                        <div className="column is-4">
+                            <div className="card">
+                                <div className="card-content">
+                                    <div className="content">
+                                        <button className="button is-fullwidth" onClick={addProject}>
+                                            <p>Add New Project</p>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-        </body>
+            </section>
+        </div>
   )
 }
 
