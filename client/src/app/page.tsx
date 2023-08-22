@@ -4,9 +4,8 @@ import React from "react";
 import Project from "@/app/interfaces/Project";
 import Head from "next/head";
 import ProjectCard from "@/app/components/Projects/ProjectCard";
-import "./global.css"
 import Link from "next/link";
-import Header from "@/app/components/Header/Header";
+import Navbar from "@/app/components/Navbar/Navbar";
 
 export default function Home() {
     const sampleProjects: Project[] = [
@@ -31,7 +30,7 @@ export default function Home() {
             <Head>
                 <title>Home</title>
             </Head>
-            <Header></Header>
+            <Navbar></Navbar>
             <section className="section">
                 <div className="container">
                     <h1 className="title">Recent Projects</h1>

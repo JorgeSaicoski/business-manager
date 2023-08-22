@@ -2,6 +2,7 @@ import React from 'react';
 import Project from "@/app/interfaces/Project";
 import Employee from "@/app/interfaces/Employee";
 
+
 interface ProjectCardHoursProps {
     project: Project;
     totalHours: number;
