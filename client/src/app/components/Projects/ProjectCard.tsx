@@ -1,5 +1,5 @@
 import React from 'react';
-import Project from "@/app/interfaces/Project";
+import Project from "@/models/Project";
 
 interface ProjectCardProps {
     project: Project; // Optional Project

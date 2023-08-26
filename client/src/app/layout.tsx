@@ -1,4 +1,4 @@
-import '@/app/public/styles/global/global.scss'
+import '@/public/styles/global/global.scss'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 

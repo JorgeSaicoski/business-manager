@@ -1,0 +1,46 @@
+@use "variables" as v;
+@import "../../../../node_modules/bulma/bulma.sass";
+
+
+.open-navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  min-width: 150px;
+  width: 10vw;
+  background-color: v.$primary-color;
+  box-shadow: 2px 0 5px black;
+  display: flex;
+  flex-direction: column;
+  z-index: 1000;
+  transition: height 0.25s;
+
+  .navbar-menu {
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px;
+    flex-grow: 1;
+    overflow-y: auto;
+    background-color: v.$primary-color;
+  }
+
+  .navbar-start{
+    flex-direction: column;
+    color: v.$text-color;
+    z-index: 1000;
+    p{
+      color: v.$text-color;
+    }
+  }
+}
+
+.closed-navbar{
+  width: 150px;
+  overflow: hidden;
+  height: 40px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}

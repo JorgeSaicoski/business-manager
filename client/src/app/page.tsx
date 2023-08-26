@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react";
-import Project from "@/app/interfaces/Project";
+import Project from "@/models/Project";
 import Head from "next/head";
 import ProjectCard from "@/app/components/Projects/ProjectCard";
 import Link from "next/link";

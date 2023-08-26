@@ -1,6 +1,6 @@
 import React from 'react';
-import Project from "@/app/interfaces/Project";
-import Employee from "@/app/interfaces/Employee";
+import Project from "@/models/Project";
+import Employee from "@/models/Employee";
 
 
 interface ProjectCardHoursProps {
