@@ -1,11 +1,10 @@
 import React from 'react';
-//import { useSession } from "next-auth/react";
+import { useSession } from "next-auth/react";
 
 
 
 const ProjectCard: React.FC = () => {
-    //const {data} = useSession()
-    const data = false
+    const { data } = useSession()
     return (
         <div className="buttons">
             {data ? (
