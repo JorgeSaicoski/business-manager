@@ -18,6 +18,23 @@ pnpm dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+##Setting Up Environment Variables
+
+#To configure the necessary settings for your Business Manager application, you need to create a .env.local file in the root of your project. This file should contain the following environment variables:
+- MONGODB_URI
+- NEXTAUTH_URL
+- NEXTAUTH_SECRET
+
+```
+MONGODB_URI = mongodb://127.0.0.1:27017/erp
+NEXTAUTH_URL = http://127.0.0.1:3000/
+NEXTAUTH_SECRET = TopSecretString
+```
+
+
+
+Here's an example .env.local file
+
 ## Features (only working if checked)
 
 - [ ] Task Management: Employees can create, update, and organize their tasks efficiently.
