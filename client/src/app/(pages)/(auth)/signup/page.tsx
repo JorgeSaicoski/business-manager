@@ -2,11 +2,9 @@
 import { FormEvent, useState } from "react";
 import axios, { AxiosError } from "axios";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
 
 function Signup() {
   const [error, setError] = useState();
-  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,18 +15,16 @@ function Signup() {
         password: formData.get("password"),
         fullname: formData.get("fullname"),
       });
-      console.log(signupResponse);
       const res = await signIn("credentials", {
         email: signupResponse.data.email,
         password: formData.get("password"),
         redirect: false,
       });
 
-      if (res?.ok) return router.push("/dashboard/profile");
-    } catch (error) {
-      console.log(error);
-      if (error instanceof AxiosError) {
-        const errorMessage = error.response?.data.message;
+    } catch (err) {
+      console.log(err);
+      if (err instanceof AxiosError) {
+        const errorMessage = err.response?.data.message;
         setError(errorMessage);
       }
     }

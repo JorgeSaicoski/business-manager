@@ -1,25 +1,28 @@
+"use client"
 import React from 'react';
-import { useSession } from "next-auth/react";
+import { useSession, signOut } from "next-auth/react";
 import Link from 'next/link';
+import { useRouter } from "next/navigation";
 
 
 
 const LoginButton: React.FC = () => {
     const { data } = useSession()
+    const router = useRouter();
+
+    const handleLogout = () => {
+        signOut();
+        router.push("/login")
+    };
+
     return (
-        <div className="buttons">
-            <div className="modal">
-                <div className="modal-background"></div>
-                <div className="modal-content">
-                </div>
-                <button className="modal-close is-large" aria-label="close"></button>
-            </div>
+        <>
             {data ? (
-                    <button className="button is-danger">Logout</button>
+                    <button className="button is-danger" onClick={handleLogout}>Logout</button>
             ) : (
-                <Link href="/"><button className="button is-info">Login</button></Link>
+                <><Link href="/signup"><button className="button is-warning">Register</button></Link><Link href="/login"><button className="button is-info">Login</button></Link></>
             )}
-        </div>
+        </>
     );
 };
 

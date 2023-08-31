@@ -2,6 +2,7 @@ import { connectDB } from '@/db/connect';
 import User from '@/db/models/user';
 import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
+import mongoose from 'mongoose';
 
 const MIN_PASSWORD_LENGTH = 6;
 

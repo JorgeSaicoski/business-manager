@@ -26,37 +26,35 @@ export default function Home() {
     };
 
     return (
-        <div>
-            <Head>
-                <title>Home</title>
-            </Head>
-            <Navbar></Navbar>
-            <section className="section">
-                <div className="container">
-                    <h1 className="title">Recent Projects</h1>
-                    <div className="columns is-multiline">
-                        {sampleProjects.map((project:Project, index:number) => (
-                            <div className="column is-4" key={index}>
-                                <Link href={`/project/${project.name}`}>
-                                        <ProjectCard project={project} />
-                                </Link>
-                            </div>
-                        ))}
-                        <div className="column is-4">
-                            <div className="card">
-                                <div className="card-content">
-                                    <div className="content">
-                                        <button className="button is-fullwidth" onClick={addProject}>
-                                            <p>Add New Project</p>
-                                        </button>
-                                    </div>
+        <section className="column">
+        <Head>
+            <title>Home</title>
+        </Head>
+        
+            <div className="container">
+                <h1 className="title">Recent Projects</h1>
+                <div className="columns is-multiline">
+                    {sampleProjects.map((project:Project, index:number) => (
+                        <div className="column is-4" key={index}>
+                            <Link href={`/project/${project.name}`}>
+                                    <ProjectCard project={project} />
+                            </Link>
+                        </div>
+                    ))}
+                    <div className="column is-4">
+                        <div className="card">
+                            <div className="card-content">
+                                <div className="content">
+                                    <button className="button is-fullwidth" onClick={addProject}>
+                                        <p>Add New Project</p>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </section>
-        </div>
+            </div>
+        </section>
   )
 }
 

@@ -1,12 +1,9 @@
 "use client"
 import { FormEvent, useState } from "react";
-import { AxiosError } from "axios";
-import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 function Signin() {
   const [error, setError] = useState("");
-  const router = useRouter();
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -16,23 +13,22 @@ function Signin() {
       password: formData.get("password"),
       redirect: false,
     });
+    console.log(res)
 
     if (res?.error) setError(res.error as string);
-
-    if (res?.ok) return router.push("/");
   };
+  const { data } = useSession()
 
   return (
-    <div className="columns is-centered is-vcentered is-fullheight">
-      <form onSubmit={handleSubmit} className="column is-one-third">
-        {error && <div className="notification is-danger mb-2">{error}</div>}
-        <h1 className="title is-4 has-text-weight-bold mb-4">Signin</h1>
+    <div className="columns is-vcentered">
+      <form onSubmit={handleSubmit} className="column control">
+        <h1 className="title has-text-weight-bold">Signin</h1>
 
         <label className="label has-text-grey-light">Email:</label>
         <input
           type="email"
           placeholder="Email"
-          className="input mb-2"
+          className="input"
           name="email"
         />
 
@@ -40,12 +36,13 @@ function Signin() {
         <input
           type="password"
           placeholder="Password"
-          className="input mb-2"
+          className="input"
           name="password"
         />
 
         <button className="button is-primary is-fullwidth mt-4">Signup</button>
       </form>
+      <div className="notification is-danger ">{error}</div>
     </div>
   );
 }
