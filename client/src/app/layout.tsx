@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Providers>
-        <div className="columns has-background-primary-dark" id='main'>
+        <div className="columns has-background-grey-darker" id='main'>
           <Navbar></Navbar>
           {children}
         </div>

@@ -31,7 +31,7 @@ export default function ProjectPage() {
             <title>Projects</title>
         </Head>
         
-            <div className="container">
+            <div className="container" id="projects">
                 <h1 className="title">Recent Projects</h1>
                 <div className="columns is-multiline">
                     {sampleProjects.map((project:Project, index:number) => (
