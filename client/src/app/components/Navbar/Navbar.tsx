@@ -10,13 +10,13 @@ const Navbar: React.FC = () => {
                 <Link href="/" passHref>
                     <p className="navbar-item">Home</p>
                 </Link>
-                <Link href="/about" passHref>
+                <Link href="/projects" passHref>
                     <p className="navbar-item">Projects</p>
                 </Link>
-                <Link href="/services" passHref>
+                <Link href="/tasks" passHref>
                     <p className="navbar-item">Tasks</p>
                 </Link>
-                <Link href="/services" passHref>
+                <Link href="/team" passHref>
                     <p className="navbar-item">Team</p>
                 </Link>
                 <div className="buttons">

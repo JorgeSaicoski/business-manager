@@ -1,59 +1,45 @@
 "use client"
-
 import React from "react";
-import Project from "@/models/Project";
 import Head from "next/head";
-import ProjectCard from "@/app/components/Projects/ProjectCard";
+import { useSession } from "next-auth/react";
 import Link from "next/link";
-import Navbar from "@/app/components/Navbar/Navbar";
+
 
 export default function Home() {
-    const sampleProjects: Project[] = [
-        {
-            name: 'Project A',
-            client: 'Client X',
-            totalHours: 15,
-        },
-        {
-            name: 'Project B',
-            client: 'Client Y',
-            totalHours: 15,
-        },
-    ];
-    const addProject = (event: React.MouseEvent<HTMLElement>) => {
-        console.log(event.target);
-        console.log(event.currentTarget);
-    };
+    const { data } = useSession()    
+    console.log(data)
 
     return (
         <section className="column">
-        <Head>
-            <title>Home</title>
-        </Head>
-        
-            <div className="container">
-                <h1 className="title">Recent Projects</h1>
-                <div className="columns is-multiline">
-                    {sampleProjects.map((project:Project, index:number) => (
-                        <div className="column is-4" key={index}>
-                            <Link href={`/project/${project.name}`}>
-                                    <ProjectCard project={project} />
-                            </Link>
+            <Head>
+                <title>Home</title>
+            </Head>
+            {
+                data?(
+                    <section className="hero is-primary">
+                        <div className="hero-body">
+                            <p className="title">
+                                Welcome, {data.user.fullname}
+                            </p>
+                            <p className="subtitle">
+                                Please fell in your house!
+                            </p>
                         </div>
-                    ))}
-                    <div className="column is-4">
-                        <div className="card">
-                            <div className="card-content">
-                                <div className="content">
-                                    <button className="button is-fullwidth" onClick={addProject}>
-                                        <p>Add New Project</p>
-                                    </button>
-                                </div>
-                            </div>
+                    </section>    
+                ):(
+                    <section className="hero is-danger">
+                        <div className="hero-body">
+                            <p className="title">
+                                Please identify yourself!
+                            </p>
+                            <p className="subtitle">
+                                <Link href="/signup"><button className="button is-warning">Register</button></Link>
+                                <Link href="/login"><button className="button is-info">Login</button></Link>
+                            </p>
                         </div>
-                    </div>
-                </div>
-            </div>
+                    </section>    
+                )
+            }
         </section>
   )
 }
