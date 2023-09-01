@@ -2,7 +2,7 @@ import { connectDB } from "@/db/connect";
 import NextAuth from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import bcrypt from "bcryptjs";
-import User from "@/db/models/user";
+import User from "@/db/schemas/user";
 
 const handler = NextAuth({
   providers: [

@@ -1,13 +1,13 @@
-import { Model, Document } from 'mongoose';
+import { Model, Document, Types } from 'mongoose';
 
 
 export async function updateItem<T extends Document>(
   model: Model<T>,
-  itemId: string,
+  id: Types.ObjectId,
   updateData: Partial<T>
 ): Promise<T | null> {
   try {
-    const updatedItem = await model.findByIdAndUpdate(itemId, updateData, {
+    const updatedItem = await model.findByIdAndUpdate(id, updateData, {
       new: true, 
       runValidators: true, 
     });
