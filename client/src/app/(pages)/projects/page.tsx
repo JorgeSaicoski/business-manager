@@ -1,6 +1,6 @@
 "use client"
 import ProjectCard from "@/app/components/Projects/ProjectCard";
-import Project from "@/models/Project";
+import Project from "@/interfaces/Project";
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";

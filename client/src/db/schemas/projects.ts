@@ -1,13 +1,16 @@
 import Project from '@/interfaces/Project';
-import mongoose, { Schema } from 'mongoose';
+import mongoose, { Schema, Document } from 'mongoose';
 
-const projectSchema = new Schema<Project>({
+interface ProjectDB extends Document, Project {}
+
+const projectSchema = new Schema<ProjectDB>({
   name: { type: String, required: true },
   client: { type: String, required: true },
   totalHours: { type: Number },
   employees: [{ type: Schema.Types.ObjectId, ref: 'Employee' }],
 });
 
-const ProjectModel = mongoose.model<Project>('Project', projectSchema);
+const ProjectModel = mongoose.model<ProjectDB>('Project', projectSchema);
 
-export default ProjectModel;
+export { ProjectModel };
+export type { ProjectDB }

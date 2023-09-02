@@ -1,7 +1,6 @@
-import { Document } from "mongoose";
 import Employee from "./Employee";
 
-interface Project extends Document {
+interface Project {
     name: string;
     client: string;
     totalHours?: number;
