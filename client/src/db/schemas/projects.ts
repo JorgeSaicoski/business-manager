@@ -4,7 +4,7 @@ import mongoose, { Schema } from 'mongoose';
 const projectSchema = new Schema<Project>({
   name: { type: String, required: true },
   client: { type: String, required: true },
-  totalHours: { type: Number, required: true },
+  totalHours: { type: Number },
   employees: [{ type: Schema.Types.ObjectId, ref: 'Employee' }],
 });
 

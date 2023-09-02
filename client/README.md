@@ -55,3 +55,10 @@ Here's an example .env.local file
 - MongoDB instance or connection URL
   
 
+### Deployment
+
+This version of the project is intended for showcasing in my portfolio and is not designed for production deployment. If you wish to deploy it for production, please consider switching to the "Full Stack Docker" branch for a more scalable deployment setup.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.

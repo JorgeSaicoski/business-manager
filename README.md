@@ -41,3 +41,7 @@ Please refer to the respective version's README for detailed setup and installat
 ## Contributing
 
 Contributions are welcome! Feel free to submit pull requests.
+
+### License
+
+This project is licensed under the [MIT License](LICENSE). See the [LICENSE](LICENSE) file for details.

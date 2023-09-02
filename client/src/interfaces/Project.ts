@@ -1,9 +1,10 @@
+import { Document } from "mongoose";
 import Employee from "./Employee";
 
-interface Project {
+interface Project extends Document {
     name: string;
     client: string;
-    totalHours: number;
+    totalHours?: number;
     employees: Employee[];
 }
 
