@@ -15,9 +15,9 @@ export default function Home() {
                 <title>Home</title>
             </Head>
             {
-                data?(
-                    <section className="hero is-primary">
-                        <div className="hero-body">
+                data&&data.user&&data.user.fullname?(
+                    <section className="hero-body is-justify-content-center is-align-items-center">
+                        <div className="columns is-flex is-flex-direction-column box has-background-success">
                             <p className="title">
                                 Welcome, {data.user.fullname}
                             </p>

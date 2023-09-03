@@ -46,7 +46,9 @@ export default function ProjectPage() {
                             <div className="card-content">
                                 <div className="content">
                                     <button className="button is-fullwidth" onClick={addProject}>
-                                        <p>Add New Project</p>
+                                        <Link href={`/projects/create`}>
+                                                <p>Add New Project</p>
+                                        </Link>      
                                     </button>
                                 </div>
                             </div>
